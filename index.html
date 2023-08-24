@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SSY BRAND Job Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            color: red;
+        }
+        label {
+            font-weight: bold;
+        }
+        select, textarea, input[type="text"], input[type="email"], input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 20px 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>SSY BRAND Job Application</h1>
+    <form>
+        <label for="name"><h2>Name:</h2></label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email"><h2>Email:</h2></label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="phone"><h2>Phone:</h2></label>
+        <input type="tel" id="phone" name="phone" required>
+        
+        <label for="position"><h2>Position:</h2></label>
+        <select id="position" name="position" required>
+            <option value="none">None</option>
+            <option value="marketing">Marketing</option>
+            <option value=" web design">Web Designer</option>
+            <option value="Staff post">Staff Post</option>
+            <option value="Leader post">Leader Post [paid form]</option>
+            <!-- Add more options as needed -->
+        </select>
+        
+        <label for="cover-letter"><h2>Cover Letter:</h2></label>
+        <textarea id="cover-letter" name="cover-letter" rows="4" required></textarea>
+        
+        <input type="submit" value="Submit Application" onclick="openEmailClient()">
+    </form>
+
+    <script>
+        function openEmailClient() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var position = document.getElementById("position").value;
+            var coverLetter = document.getElementById("cover-letter").value;
+            
+            var subject = encodeURIComponent("Job Application: " + position);
+            var body = encodeURIComponent(
+                "Name: " + name + "<br>" +
+                "Email: " + email + " <br>" +
+                "Phone: " + phone + "<br>" +
+                "Position: " + position + "<br>" +
+                "Cover Letter:<br>" + coverLetter
+            );
+            
+            window.location.href = "mailto:ssybrand58@gmail.com?subject=" + subject + "&body=" + body;
+        }
+    </script>
+    <br></br>
+    <marquee><font color=blue size=6>form Secure by :-&nbsp;SSY TEAM </marquee>
+</body>
+</html>
